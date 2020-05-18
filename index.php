@@ -7,11 +7,11 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<!-- <form action="upload.php" method="POST" accept-charset="utf-8" enctype="multipart/formdata"> -->
-		<textarea id="myTextarea"></textarea>
+	<form action="upload2.php" method="POST" accept-charset="utf-8" enctype="multipart/formdata">
+		<textarea id="myTextarea" name="textarea"></textarea>
 		<br>
-		<!-- <input type="submit" name="submit" value="Submit"> -->
-	<!-- </form> -->
+		<input type="submit" name="submit" value="Submit">
+	</form>
 	<script src="jquery.min.js" type="text/javascript"></script>
 	<script src="tinymce/tinymce.min.js" type="text/javascript"></script>
 
@@ -28,36 +28,36 @@
 		    images_upload_url: 'upload.php',
 		    
 		    // override default upload handler to simulate successful upload
-		    images_upload_handler: function (blobInfo, success, failure) {
-		        var xhr, formData;
+		    // images_upload_handler: function (blobInfo, success, failure) {
+		    //     var xhr, formData;
 		      
-		        xhr = new XMLHttpRequest();
-		        xhr.withCredentials = false;
-		        xhr.open('POST', 'upload.php');
+		    //     xhr = new XMLHttpRequest();
+		    //     xhr.withCredentials = false;
+		    //     xhr.open('POST', 'upload.php');
 		      
-		        xhr.onload = function() {
-		            var json;
+		    //     xhr.onload = function() {
+		    //         var json;
 		        
-		            if (xhr.status != 200) {
-		                failure('HTTP Error: ' + xhr.status);
-		                return;
-		            }
+		    //         if (xhr.status != 200) {
+		    //             failure('HTTP Error: ' + xhr.status);
+		    //             return;
+		    //         }
 		        
-		            json = JSON.parse(xhr.responseText);
+		    //         json = JSON.parse(xhr.responseText);
 		        
-		            if (!json || typeof json.location != 'string') {
-		                failure('Invalid JSON: ' + xhr.responseText);
-		                return;
-		            }
+		    //         if (!json || typeof json.location != 'string') {
+		    //             failure('Invalid JSON: ' + xhr.responseText);
+		    //             return;
+		    //         }
 		        
-		            success(json.location);
-		        };
+		    //         success(json.location);
+		    //     };
 		      
-		        formData = new FormData();
-		        formData.append('file', blobInfo.blob(), blobInfo.filename());
+		    //     formData = new FormData();
+		    //     formData.append('file', blobInfo.blob(), blobInfo.filename());
 		      
-		        xhr.send(formData);
-		    },
+		    //     xhr.send(formData);
+		    // },
 		});
 		</script>
 
